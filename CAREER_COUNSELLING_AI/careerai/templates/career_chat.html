@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gemini AI Chat</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #1e1e1e;
+      color: #fffefeff;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+     
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .header {
+      font-family:  'Georgia', 'serif';
+      text-align: center;
+      font-size: 30px;
+      margin-top: 40px;
+      font-weight:bold;
+      color: #4660a7ff
+    }
+
+    .chat-section {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    
+      padding: 20px;
+      margin:20px auto;
+    }
+
+    .chat-bubble {
+      background-color: #2d2d2d;
+      padding: 20px;
+      border-radius: 20px;
+      max-width: 600px;
+      margin-bottom: 15px;
+      position: relative;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .chat-bubble.user {
+      background-color: #3b2424e0;
+      align-self: flex-end;
+      border-top-right-radius: 0;
+      margin :30px;
+    }
+
+    .chat-bubble.bot {
+      align-self: flex-start;
+      border-top-left-radius: 0;
+    }
+
+    .chat-bubble.bot::before {
+      position: absolute;
+      top: 10px;
+      left: -25px;
+      font-size: 20px;
+    }
+
+    .chat-footer {
+      padding: 15px 20px;
+      background-color: #111111 ;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .input-box {
+      display: flex;
+      width: 60%;
+      background-color: #2a2a2a;
+      border-radius: 25px;
+      padding: 10px 20px;
+      align-items: center;
+    }
+
+    .input-box input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .input-box button {
+      background-color: #8ac1f8ff;
+      color: #000;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 20px;
+      font-weight: bold;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .feedback-icons {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+      font-size: 18px;
+      color: #aaa;
+    }
+
+    .feedback-icons i {
+      cursor: pointer;
+    }
+    .gemini-heading {
+  font-size: 36px;
+  font-weight: bold;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.gemini {
+  color: #b3b5bcff;  
+}
+
+.ai {
+  color: #1a73e8;  
+}
+.chat-input {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f1f1f1;
+    padding: 10px 20px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+
+  </style>
+</head>
+<body>
+  <h1 class="gemini-heading">
+  <span class="gemini">CareerMentor</span><span class="ai">AI</span>
+</h1>
+
+  <div class="header">Hello, {{ user.username|default:"Guest" }}</div>
+
+  <div class="chat-section">
+
+    {% if question %}
+      <div class="chat-bubble user">
+        {{ question }}
+      </div>
+    {% endif %}
+
+    {% if answer %}
+      <div class="chat-bubble bot">
+        {{ answer }}
+        <div class="feedback-icons">
+          <span title="Like">like</span>
+          <span title="Dislike">dislike</span>
+          <span title="Retry">Retry</span>
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+
+  <div class="chat-footer">
+    <form method="POST" action="{% url 'career_chat_ai' %}" class="input-box">
+      {% csrf_token %}
+      <input type="text" name="question" placeholder="Ask Gemini..." required />
+      <button type="submit">Ask</button>
+    </form>
+  </div>
+
+</body>
+</html>
+
+

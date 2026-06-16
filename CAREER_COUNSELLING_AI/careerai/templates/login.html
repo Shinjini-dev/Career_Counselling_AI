@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% block Content %}
+<section class="wrapper">
+    <div class="contain">
+        <div class="col-sm-4 offset-sm-4 col-lg-3 offset-lg-4 col-xl-3 offset-xl-4 text-center">
+            <div class="logo h=10vh">
+                <img src="{% static 'images/CareerMentor AI Logo .png' %}" class="img-fluid h=10vh" alt=".">
+            </div>
+           <form  class="rounded bg-white shadow p-4">
+            <h3 class="text-dark fw-bold fs-4 mb-2">Sign in to CareerMentor AI</h3>
+            <div class="fw-normal text-muted mb-4">
+                New here??<a href="/register/" class="fw- bold text primary text-decoration-none">Create an account</a>
+            </div>
+       
+            <div class="form-floating mb-3">
+  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+  <label for="floatingInput">Email</label>
+</div>
+<div class="form-floating">
+  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+  <label for="floatingPassword">Password</label>
+</div>
+<div class="mt-2 text-end">
+    <a href="#"class="fw- bold text primary text-decoration-none">Forgot Password?</a>
+</div>
+<button type="submit" class="btn btn-primary submit_btn w-100 my-4 ">Continue</button>
+
+
+
+
+
+</form>
+ </div>
+</div>
+</section>
+
+{% endblock %}
+{% comment %} <div class="login-box">
+<h1>Login</h1>
+<form method="POST">
+    {% csrf_token %}
+    Name:<input type="text" name="username" placeholder="username">
+    <br><br>
+    Password:<input type="password" name="password" placeholder="password">
+    <br><br>
+    <button type="Submit">Login</button>
+</form>
+ <p>Don't have an account? <a href="/register/">Register</a></p>
+</div>
+{% if messages  %}
+<div class="message-box">
+{% for message in messages  %}
+<p>{{ message }}</p>
+{% endfor %}
+</div>
+{% endif %} {% endcomment %}

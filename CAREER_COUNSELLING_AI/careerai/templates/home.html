@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block Content %}
+{% comment %} <div style="height: 80vh; overflow: hidden;":>
+  <img src="{% static 'images/image1.jpg' %}" alt="." style="width: 100%; height: 100%; object-fit: cover;">
+</div> {% endcomment %}
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner" style="height: 80vh; overflow: hidden;":>
+    <div class="carousel-item active">
+      <img src="{% static 'images/image1.jpg' %}" class="d-block w-100" alt="..." style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div class="carousel-item" style="height: 80vh; overflow: hidden;":>
+      <img src="{% static 'images/image2.jpg' %}" class="d-block w-100" alt="..." style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/image 3 .jpg' %}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<section class="about my-5">
+    <div class="container text-center">
+        <div class="cont my-6">
+            <h1>About <span class="text-primary"> CareerMentor AI</span></h1>
+            <hr / class=" my-5">
+            <h4 >
+       What is Career Counselling?
+
+            </h4>
+    <p >
+      Career counselling is a process that helps individuals
+       understand their strengths, interests, and abilities to make informed decisions about their career paths. It provides expert guidance on choosing the right profession based on skills, personality, and aspirations.
+    </p>
+
+    <h4>What Are Career Assessment Tests?</h4>
+<p>A Career assessment test is a powerful tool designed to identify your unique strengths, interests, skills, and personality traits, enabling us to recommend suitable career paths. SetMyCareer’s scientifically validated career assessment evaluates multiple dimensions, including aptitude, interests, behavioural traits, and personality. Based on this comprehensive analysis, you receive a detailed report highlighting the best career options for you. With actionable insights and a clear plan for your career growth, SetMyCareer ensures that you take meaningful steps toward building
+     a successful and fulfilling professional life.</p>
+
+     <h4>Why Opt for Online Career Counselling?</h4>
+<p>SetMyCareer provides you with online counselling, allowing you to choose 
+    your preferred counsellor. This flexible option lets you receive expert guidance from the comfort of your home, regardless of your location. With our diverse team of experienced counsellors, online counselling is a practical choice for making informed career decisions while managing personal and professional commitments.</p>
+        </div>
+    </div>
+</section>
+
+<section class="hero-section text-center text-white">
+  <div style="height: 60vh;">
+    <div class=" d-flex flex-column justify-content-center align-items-center h-100 bg-dark bg-opacity-50">
+      <h1 class="display-4">Set Your Career</h1>
+      <p class="lead">Take a smart quiz & unlock your dream profession</p>
+      <div class="rounded-2xl">
+         <a href="/quiz/" class=" btn btn-primary">Take Career Quiz</a>
+      </div>
+     
+    </div>
+  </div>
+</section>
+
+<section class="features py-5 text-center">
+  <div class="container">
+    <h2 class="mb-4">Why Choose CareerAI?</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <i class="bi bi-person-check" style="font-size: 2rem;"></i>
+        <h5>Tailored Career Advice</h5>
+        <p>AI-based matching to find your best-fit profession</p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-bar-chart" style="font-size: 2rem;"></i>
+        <h5>Skill Gap Analysis</h5>
+        <p>Know which skills you lack and how to fill them</p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-lightning" style="font-size: 2rem;"></i>
+        <h5>Fast & Reliable</h5>
+        <p>Instant recommendations with high accuracy</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

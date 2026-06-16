@@ -1,0 +1,233 @@
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}User Information{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'info.css' %}">
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #eef2ff, #ffffff);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+      padding:20px;
+    }
+    .container {
+      width:100%;
+      max-width:600px;
+      background:#fff;
+      border-radius:12px;
+      padding:40px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    }
+    h2 {
+      font-size:1.8rem;
+      color:#1f2937;
+      text-align:center;
+      margin-bottom:30px;
+    }
+    .form-group {
+      margin-bottom:20px;
+    }
+    label {
+      display:block;
+      color:#374151;
+      font-weight:600;
+      margin-bottom:6px;
+      font-size:0.95rem;
+    }
+    input, select {
+      width:100%;
+      padding:12px;
+      border:1px solid #c0c4cc;
+      border-radius:6px;
+      font-size:0.95rem;
+      transition:border 0.3s;
+    }
+    input:focus, select:focus {
+      outline:none;
+      border-color:#2563eb;
+    }
+    .errorlist {
+      color:#dc2626;
+      font-size:0.85rem;
+      margin-bottom:6px;
+    }
+    button {
+      width:100%;
+      padding:14px;
+      background:#2563eb;
+      color:#fff;
+      font-size:1rem;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:600;
+      transition:background 0.3s;
+    }
+    button:hover {
+      background:#1e40af;
+    }
+    .note {
+      margin-top:20px;
+      font-size:0.85rem;
+      color:#6b7280;
+      text-align:center;
+    }
+   
+  </style>
+</head>
+<body>
+    <div class="user-info-form">
+        <h1>Academic and Personal Info</h1>
+     <form  method="post">
+        {% csrf_token %}
+         {{forms.as_p}}
+         <button type="submit">submit</button>
+         <a href="/quiz/">Start quiz</a>
+     </form>
+
+    </div>
+</body>
+</html> {% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Career Counselling - Step 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <link rel="stylesheet" href="{% static 'info.css' %}">
+
+  {% comment %} <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9fafb;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .form-wrapper {
+      background: #ffffff;
+      padding: 40px 50px;
+      max-width: 600px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .form-wrapper:hover {
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      text-align: center;
+      color: #111827;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    form .form-group {
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      color: #374151;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 15px;
+      background-color: #f9fafb;
+      color: #111827;
+      transition: border-color 0.2s ease;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #2563eb;
+      background-color: #ffffff;
+    }
+
+    .errorlist {
+      color: #dc2626;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: #2563eb;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1e40af;
+    }
+
+    .note {
+      text-align: center;
+      color: #6b7280;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+{% comment %} 
+    @media (max-width: 600px) {
+      .form-wrapper {
+        padding: 30px 20px;
+      }
+    }  {% endcomment %}
+</head>
+<body>
+  <div class="form-wrapper">
+    <h2>Let’s Personalize Your Career Path</h2>
+    <form method="post">
+      {% csrf_token %}
+      {% for field in forms %}
+        <div class="form-group">
+          {{ field.label_tag }}
+          {{ field }}
+          {% if field.errors %}
+            <div class="errorlist">{{ field.errors }}</div>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <button type="submit" class="submit-btn">submit</button>
+      <a href="/quiz/" class="quiz-btn">
+     Start Career Quiz
+</a>
+    </form>
+ <p class="note">
+  <strong>Your responses help us craft personalized career guidance</strong> based on your academic background and aspirations.
+</p>
+</body>
+</html> 
+
+
+
+

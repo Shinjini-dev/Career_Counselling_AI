@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Counselling Result</title>
+    <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f5f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .score-box {
+      background-color: #eaf4fc;
+      padding: 10px 15px;
+      margin: 8px 0;
+      border-left: 5px solid #3498db;
+      border-radius: 4px;
+    }
+    .career-highlight {
+      background-color: #dff0d8;
+      padding: 15px;
+      border-left: 5px solid #2ecc71;
+      border-radius: 4px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .skill-badge {
+      display: inline-block;
+      background: #ecf0f1;
+      color: #2c3e50;
+      padding: 6px 12px;
+      margin: 5px 5px 5px 0;
+      border-radius: 15px;
+      font-size: 14px;
+    }
+    .summary-section p {
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .button-group {
+      margin-top: 30px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    <style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f2f5f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+  .container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+    .btn {
+      background-color: #3498db;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #2980b9;
+    }
+    .footer-note {
+      margin-top: 40px;
+      font-size: 12px;
+      text-align: center;
+      color: gray;
+    }
+  </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Your Career Counselling Result</h1>
+        <div class="score-section">
+            <h2>Score</h2>
+            {% for key,value in score.items %}
+            <div>{{key}} - {{value}}</div>
+            {% endfor %}
+        </div>
+         <div class="career-section">
+          <h2>Recommended Career</h2>  
+          <p>{{career}}</p>
+
+         </div>
+
+    <div class="skills-section">
+      <h2>Required Skills</h2>
+      {% for skill in skills.split %}
+        <span class="skill-badge">{{ skill }}</span>
+      {% endfor %}
+    </div>
+
+    <div class="summary-section">
+      <h2>What to Do Next?</h2>
+      <p>Start exploring this field. Practice projects, learn from courses, and build a strong GitHub or portfolio to get noticed by recruiters.</p>
+    </div>
+<div class="btn-group">
+<button class="btn" onclick="copyLink()">copy link</button>
+<button class="btn" onclick="downloadPDF()">download as pdf</button>
+   </div>
+    <script>
+     function copyLink(){
+      navigator.clipboard.writeText(window.location.href).then(function () {
+        alert("Link copied to clipboard")
+     }
+     function downloadPDF(){
+      alert("Download PDF")
+     }
+     
+    </script>
+
+ 
+</body>
+</html>

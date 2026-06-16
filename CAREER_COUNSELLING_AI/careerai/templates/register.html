@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+{% block Content %}
+<section class="wrapper">
+    <div class="contain">
+        <div class="col-sm-4 offset-sm-4 col-lg-3 offset-lg-4 col-xl-3 offset-xl-4 text-center">
+            <div class="logo h=10vh">
+                <img src="{% static 'images/CareerMentor AI Logo .png' %}" class="img-fluid h=10vh" alt=".">
+            </div>
+           <form  class="rounded bg-white shadow p-4">
+            <h3 class="text-dark fw-bold fs-4 mb-2">Create an account</h3>
+            
+              
+            <div class="form-floating mb-3">
+  <input type="text" class="form-control" id="floatingInput" placeholder="Username">
+  <label for="floatingInput">Full Name</label>
+</div>
+            <div class="form-floating mb-3">
+  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+  <label for="floatingInput">Email</label>
+</div>
+       
+            <div class="form-floating mb-3">
+  <input type="digit" class="form-control" id="floatingInput" placeholder="MobileNo">
+  <label for="floatingInput">MobileNo</label>
+</div>
+<div class="form-floating">
+  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+  <label for="floatingPassword">Password</label>
+</div>
+<button type="submit" class="btn btn-primary submit_btn w-100 my-4 ">Register</button>
+
+
+<div>
+     <h6 >Have an account? <br><a href="/login/" >Login</a> </h6>  
+       
+    
+</div>
+
+
+</form>
+ </div>
+</div>
+</section>
+{% endblock %}
+
+
+{% comment %} <h1>Register</h1>
+<form method="POST">
+    {% csrf_token %}
+    Name:<input type="text" name="username" placeholder="username">
+    <br><br>
+    Password:<input type="password" name="password" placeholder="password">
+    <br><br>
+    Email_no:<input type="email" name="email" placeholder="Enter your email-Id">
+    <br><br>
+    <button type="Submit">Register</button>
+
+</form>
+
+{% if messages %}
+<div class="message-box">
+    {% for message in messages %}
+        <div class="alert alert-info">
+            {{ message }}
+        </div>
+    {% endfor %}
+</div>
+{% endif %} {% endcomment %}

@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% comment %} <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% endcomment %}
+    
+    <title>
+        {% block title %}
+           Career Skill Quiz Form
+        {% endblock %}    
+    </title>
+<link rel="stylesheet" href="{% static 'quiz.css' %}">
+
+  
+
+</head>
+<body>
+  <div class="quiz-fullscreen"> 
+  <div class="quiz-container"> 
+    <h1 class="quiz-title">{% block quiz_title %}Career Skill Quiz Form{% endblock %}</h1>
+  <form method="post" action="{% url 'quiz_submit' %}"  class="quiz-form">
+    {% csrf_token %}
+    {% for q in questions %}
+<div class="quiz-question">
+    <p><strong>{{ forloop.counter }}. {{ q.question_text }}</strong></p>
+    <div class="quiz-options">
+    <label><input type="radio" name="q{{q.id}}" value="A">{{q.option1}}</label><br>
+    <label><input type="radio" name="q{{q.id}}" value="B">{{q.option2}}</label><br>
+    <label><input type="radio" name="q{{q.id}}" value="C">{{q.option3}}</label><br>
+    <label><input type="radio" name="q{{q.id}}" value="D">{{q.option4}}</label><br>
+    </div>
+    </div>
+    {% endfor%}
+    <div class="quiz-submit">
+   <button type=Submit>Submit</button>
+   </div>
+  </form>
+
+
+  </div>  
+
+  </div>
+</body>
+</html>
